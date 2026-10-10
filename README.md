@@ -4,6 +4,8 @@ This project investigates the prediction of **Fire Radiative Power (FRP)** from 
 
 The goal is to compare traditional ensemble methods and deep learning approaches for FRP regression while also using **SHAP (SHapley Additive exPlanations)** to interpret how individual features influence model predictions.
 
+This was a team research project done through [React Right](https://nijattaghizada.github.io/reactright-website/). We presented it at **Regeneron ISEF 2025** ([project page](https://isef.net/project/soft031t-wildfire-predictiveness-with-explainable-ai)) and published it at the **ISPEC 17th International Conference on Engineering & Natural Sciences**.
+
 ## Overview
 
 Fire Radiative Power (FRP) is a satellite-derived measure related to the intensity of actively burning fires.
@@ -169,6 +171,8 @@ Among the tested models, **XGBoost achieved the highest R² score and the lowest
 
 Random Forest performed very similarly, while TabNet achieved somewhat lower predictive performance on this dataset.
 
+<img src="images/model_comparison.png" alt="R² score comparison: Random Forest 0.72, TabNet 0.67, XGBoost 0.73" width="520">
+
 > **Note:** These metrics were calculated on the transformed FRP target rather than directly in the original FRP physical units.
 
 ## Explainable AI
@@ -192,6 +196,10 @@ The explainability analysis includes:
 - Dependence plots
 - Individual waterfall plots
 - Decision plots
+
+For the Random Forest model, the satellite brightness measurement had by far the largest impact on predictions, followed by day/night and the channel-31 brightness temperature:
+
+<img src="images/shap_feature_importance.png" alt="SHAP feature importance for Random Forest: brightness highest, then daynight, bright_t31, latitude, longitude, confidence" width="620">
 
 This allows the project to examine not only predictive accuracy, but also how different variables influence individual FRP predictions.
 
@@ -311,4 +319,4 @@ https://firms.modaps.eosdis.nasa.gov/
 
 ## Author
 
-**Nijat Taghizada**
+**Nijat Taghizada**, co-author of the research as part of the React Right team.
